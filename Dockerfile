@@ -16,4 +16,5 @@ EXPOSE 8080
 
 # 6. 【关键修改】强制 Streamlit 使用 8080 端口
 # 我们直接把 8501 改成了 8080
-CMD ["streamlit", "run", "web_app.py", "--server.port=8080", "--server.address=0.0.0.0"]
+# 强制使用 8080 端口，并且关闭 CORS 和 XSRF 保护，防止卡死
+CMD ["streamlit", "run", "web_app.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false"]
